@@ -12,9 +12,7 @@ A multi-uav formation control algorithm for tracking a dynamic target. Developed
 ### Results
 The following results are from a simulation demo on the SITL simulator where vehicles 1-4 were used to make a square formation, and vehicle 5 was used as a dynamic target for the simulation to follow.
 
-https://github.com/vishnurohit87/Multi-UAV_Formation_Control/assets/132724711/35930506-75cc-4a22-a08c-b98ef65568e8
-
-
+https://github.com/vishnurohit87/Multi-UAV_Formation_Control/assets/132724711/d1a21d8c-f9ef-4413-a08e-83112557dce2
 
 ### Notes
 - The mavproxy port type can be changed in Vehicle.py
