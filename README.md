@@ -12,7 +12,7 @@ A multi-uav formation control algorithm for tracking a dynamic target. Developed
 ### Results
 The following results are from a simulation demo on the SITL simulator where vehicles 1-4 were used to make a square formation, and vehicle 5 was used as a dynamic target for the simulation to follow.
 
-Note: The following demo is of an older version of the code and does not show inter-UAV collision avoidance in action (which is now included in the code)
+_Note: The following demo is of an older version of the code and does not show inter-UAV collision avoidance in action (which is now included in the code)_
 
 https://github.com/vishnurohit87/Multi-UAV_Formation_Control/assets/132724711/d1a21d8c-f9ef-4413-a08e-83112557dce2
 
