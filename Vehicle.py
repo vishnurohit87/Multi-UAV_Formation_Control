@@ -1,10 +1,10 @@
 from pymavlink import mavutil
 import time
-
+import numpy as np
 
 class Vehicle:
     def __init__(self, port):
-        self.master = mavutil.mavlink_connection(f'udpin:localhost:{port}')
+        self.master = mavutil.mavlink_connection(port)
         self.master.wait_heartbeat()
 
         print("Heartbeat from system (system %u component %u)" % 
@@ -134,18 +134,20 @@ class Vehicle:
             0, 0, 0,
             0, 0)
     
-    def update_yaw(self, yaw):
+    def update_yaw(self, yaw): 
+        yaw = yaw*180/np.pi
+        # print(f"Changing yaw to {yaw} degrees!")
         self.master.mav.command_long_send(
             self.master.target_system, 
             self.master.target_component,
             mavutil.mavlink.MAV_CMD_CONDITION_YAW,
             0, 
-            yaw, 35, 0, 0, 0, 0, 0)
+            yaw, 35, 0, 0, 0, 0, 0) # Takes yaw in degrees
 
         msg = self.master.recv_match(type='COMMAND_ACK', blocking=True)
         return msg.result == 0
     
-    def update_velocity_yaw(self, vx, vy, vz, yaw): # NED
+    def update_velocity_yaw(self, vx, vy, vz, yaw): # NED; Yaw in radians
         self.master.mav.set_position_target_local_ned_send(
             0,
             self.master.target_system,
@@ -270,7 +272,7 @@ class Vehicle:
 
 
 
-if __name__ == "__main__":      # Test code
+if __name__ == "__main__":
     v = Vehicle(14551)
     # while True:
     #     print(swarm.read_gps())

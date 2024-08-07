@@ -4,20 +4,12 @@ import time
 from threading import Thread
 from FFC_centroid_based import FormationFlying
 import rclpy
-import numpy as np
 
 def main(args=None):
     rclpy.init(args=args)
 
     gps_subscriber = GPSSubscriber()
-
-    formation_offsets = [
-        np.array([-10, -10]),
-        np.array([10, -10]),
-        np.array([-10, 10]),
-        np.array([10, 10])
-    ]
-    formation_flying = FormationFlying(num_uavs=4, offsets=formation_offsets, port=14552, takeoff_altitude=10)
+    formation_flying = FormationFlying(num_uavs=4, port=14552, takeoff_altitude=10)
 
     # Spin the subscriber in a separate thread
     spin_thread = Thread(target=ros_spin, args=(gps_subscriber,))
