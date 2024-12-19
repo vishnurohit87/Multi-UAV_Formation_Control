@@ -14,9 +14,7 @@ The following results are from a simulation demo on the SITL simulator where veh
 
 Velocity control **without inter-UAV collision avoidance** component:
 
-
-https://github.com/user-attachments/assets/eeb27a01-758e-4a4e-9096-8818c5d736d9
-
+https://github.com/user-attachments/assets/b98211d1-190e-4c85-b73d-d51f4ab06242
 
 
 Velocity control **with inter-UAV collision avoidance** component:
