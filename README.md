@@ -19,7 +19,7 @@ https://github.com/user-attachments/assets/eeb27a01-758e-4a4e-9096-8818c5d736d9
 
 
 
-**Velocity control **with inter-UAV collision avoidance** component:**
+Velocity control **with inter-UAV collision avoidance** component:
 
 https://github.com/user-attachments/assets/ae3d65eb-2f08-47a3-9d37-430106b90164
 
