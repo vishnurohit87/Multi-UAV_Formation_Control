@@ -19,8 +19,7 @@ class FormationFlying(object):
         self.formation_tolerance = 0.5  # Tolerance for formation achievement
 
         # Formation control gains
-        self.K1 = np.array([[0.5, 0], [0, 0.5]])  # Acts on the position error (Proportional Gain)
-        self.K2 = np.array([[0.5, 0], [0, 0.5]])  # Acts on current velocity (Derivative Gain)
+        self.K1 = np.array([[0.7, 0], [0, 0.7]])  # Acts on the position error (Proportional Gain)
         self.damping = 0.4  # Damping factor to control high frequency velocity changes (overshoot and oscillations)
 
         # Define square formation offsets (in meters, relative to the formation center)
@@ -78,7 +77,7 @@ class FormationFlying(object):
             error_meters[1] = -error_meters[1]
 
         velocity = np.array(velocity)
-        control_input_vel = self.K1 @ error_meters + self.K2 @ velocity - self.damping * velocity
+        control_input_vel = self.K1 @ error_meters - self.damping * velocity
 
         formation_velocity = self.calculate_formation_velocity(i, self.vehicles[i].read_global_position())
         control_input_vel += formation_velocity
